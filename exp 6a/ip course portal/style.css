@@ -1,0 +1,26 @@
+div {
+    background-color: rgba(37, 37, 49, 0.8); /* Lighter color with transparency */
+    color: aliceblue;
+    height: auto;
+    width: 500px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 30px;
+    text-align: left;
+}
+input {
+    padding: 2px;
+    border-radius: 10px;
+}
+select {
+    width: 100px;
+    padding: 2px;
+}
+button, input[type="reset"] {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    color: black;
+    width: 100px;
+}
