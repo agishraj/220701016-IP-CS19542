@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  *
- * @author lbhar
+ * @author agish
  */
 @WebServlet("/StudentNameServlet")
 public class StudentNameServlet extends HttpServlet {
