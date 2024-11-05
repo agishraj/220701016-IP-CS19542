@@ -9,10 +9,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
 
-/**
- *
- * @author CAROLINE
- */
+
 public class AddProductServlet extends HttpServlet {
 
     @Override
