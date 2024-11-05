@@ -18,10 +18,7 @@ import java.math.BigDecimal;
 import jakarta.servlet.annotation.WebServlet;
 
 
-/**
- *
- * @author caroline
- */
+
 @WebServlet("/jdbcServlet")
 public class jdbcServlet extends HttpServlet {
 
