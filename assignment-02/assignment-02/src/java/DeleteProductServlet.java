@@ -8,10 +8,7 @@ import java.sql.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 
-/**
- *
- * @author CAROLINE
- */
+
 
 public class DeleteProductServlet extends HttpServlet {
 
