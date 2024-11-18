@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+ 
+        <div class="container" id="game-container">
+            <h1>Welcome, <span id="username-display"></span>!</h1>
+            <div id="score-display">Score: <span id="score">0</span></div>
+            <div id="game-area"></div>
+            <button type="button" id="start-game-btn">Start Game</button>
+            <button type="button" onclick="switchtab()">Manage Game</button>
+            <button type="button" id="stop-game-btn">End Game</button>
+        </div>
+  
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#login-form').on('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                $.ajax({
+                    url: 'http://localhost:3000/php/login.php', // Ensure this is the correct path
+                    type: 'POST', // Make sure this is set to POST
+                    data: $(this).serialize(), // Serialize form data
+                    success: function (response) {
+                        console.log('Login successful:', response);
+                        window.location.href= "game.html";
+                        // Handle successful login here
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error during login:', error);
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>
