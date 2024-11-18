@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        label, select, p {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+        }
+    </style>
+    <script>
+        function getStudentDetails() {
+            var regNo = document.getElementById("regNo").value;
+            if (regNo === "Select") {
+                document.getElementById("studentDetails").innerHTML = ""; // Clear if 'Select' is chosen
+                return;
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "StudentServlet?regNo=" + regNo, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("studentDetails").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h2>Select Student Register Number:</h2>
+    
+    <label for="regNo">Register Number: </label>
+    <select id="regNo" onchange="getStudentDetails()">
+        <option value="Select">Select</option>
+        <option value="101">101</option>
+        <option value="102">102</option>
+        <option value="103">103</option>
+        <option value="104">104</option>
+        <option value="105">105</option>
+    </select>
+
+    <h3>Student Details:</h3>
+    <div id="studentDetails"></div>
+</body>
+</html>

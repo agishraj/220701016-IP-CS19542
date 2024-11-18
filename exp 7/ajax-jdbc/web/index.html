@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        /* General Page Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc); /* Purple to Blue Gradient */
+            color: white;
+        }
+
+        h2, h3 {
+            margin: 10px 0;
+            font-size: 24px;
+        }
+
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        /* Dropdown Styling */
+        select {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            color: #333;
+            transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        select:hover, select:focus {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            transform: scale(1.05);
+            outline: none;
+        }
+
+        /* Student Details Section */
+        #studentDetails {
+            margin-top: 20px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.2); /* Translucent background */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            width: 80%;
+            max-width: 500px;
+            display: none;
+        }
+
+        #studentDetails p {
+            font-size: 18px;
+            margin: 5px 0;
+            color: #ffffff;
+        }
+
+        /* Button-style Dropdown */
+        .select-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
+    <script>
+        function getStudentDetails() {
+            var regNo = document.getElementById("regNo").value;
+            var detailsDiv = document.getElementById("studentDetails");
+
+            if (regNo === "Select") {
+                detailsDiv.style.display = "none"; // Hide the section if "Select" is chosen
+                detailsDiv.innerHTML = "";
+                return;
+            }
+
+            // Simulate data fetching
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "StudentServlet?regNo=" + regNo, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    detailsDiv.innerHTML = xhr.responseText;
+                    detailsDiv.style.display = "block"; // Show details section
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h2>Student Information Portal</h2>
+    <h3>Select a Register Number to View Details</h3>
+
+    <div class="select-container">
+        <label for="regNo">Register Number:</label>
+        <select id="regNo" onchange="getStudentDetails()">
+            <option value="Select">Select</option>
+            <option value="101">101</option>
+            <option value="102">102</option>
+            <option value="103">103</option>
+            <option value="104">104</option>
+            <option value="105">105</option>
+        </select>
+    </div>
+
+    <div id="studentDetails"></div>
+</body>
+</html>
