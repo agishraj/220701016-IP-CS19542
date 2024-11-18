@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8; /* Light blue-grey background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.outer-container {
+    background-color: #ffffff; /* White background for the container */
+    padding: 30px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.outline {
+    background-color: #f7f7f7; /* Light grey outline */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    text-align: left;
+}
+
+h2 {
+    color: #2d3e50; /* Darker blue-grey for the header */
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #4a6a8c; /* Soft grey-blue label color */
+}
+
+input[type="text"], input[type="number"], input[type="email"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #d1d8e0; /* Lighter grey border */
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f1f3f6; /* Slightly off-white background for inputs */
+}
+
+textarea {
+    height: 60px;
+    resize: none;
+}
+
+.submit-btn {
+    text-align: center;
+}
+
+button {
+    background-color: #3498db; /* Soft blue button color */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
