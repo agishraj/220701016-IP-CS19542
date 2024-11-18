@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+
+<html>
+    <head>
+        <title>Book Details</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function promptForAccno() {
+                var accno = prompt("Enter the book's account number:");
+                if (accno !== null) {
+                    const url = `http://localhost:8080/Ex._No.__5_-_SERVLET_-_JDBC/jdbcServlet?accno=${accno}`;
+                    
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                          
+                            document.getElementById('title').textContent = data.title || 'Not found';
+                            document.getElementById('author').textContent = data.author || 'Not found';
+                            document.getElementById('publisher').textContent = data.publisher || 'Not found';
+                            document.getElementById('edition').textContent = data.edition || 'Not found';
+                            document.getElementById('price').textContent = data.price || 'Not found';
+                        })
+                        .catch(error => console.error('Error fetching data:', error));
+                }
+            }
+        </script>
+    </head>
+    <body onload="promptForAccno()">
+        <h1>Book Details</h1>
+        <p><strong>Title:</strong> <span id="title"></span></p>
+        <p><strong>Author:</strong> <span id="author"></span></p>
+        <p><strong>Publisher:</strong> <span id="publisher"></span></p>
+        <p><strong>Edition:</strong> <span id="edition"></span></p>
+        <p><strong>Price:</strong> <span id="price"></span></p>
+    </body>
+</html>

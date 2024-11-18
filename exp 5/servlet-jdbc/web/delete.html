@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <script>
+            function fetchAllBooks()
+            {
+                const url=`http://localhost:8080/Ex._No.__5_-_SERVLET_-_JDBC/jdbcServlet?action=fetchAll`;
+                
+                fetch(url)
+                        .then(response=>response.json())
+                        .then(data=>{
+                            const tbody=document.getElementById('bookTable').getElementsByTagName('tbody')[0];
+                            tbody.innerHTML='';
+                            
+                            data.forEach(book=>{
+                                const row=tbody.insertRow();
+                                row.insertCell().textContent=book.accno;
+                                row.insertCell().textContent=book.title;
+                                row.insertCell().textContent = book.author;
+                                row.insertCell().textContent = book.publisher;
+                                row.insertCell().textContent = book.edition;
+                                row.insertCell().textContent = book.price;
+                                const deleteCell = row.insertCell();
+                                const deleteButton = document.createElement('button');
+                                deleteButton.textContent='Delete';
+                                deleteButton.onclick = () => deleteBook(book.accno);
+                                deleteCell.appendChild(deleteButton);
+                            });
+                })
+                 .catch(error=>console.log('Error fetching data',error));
+            }
+            function deleteBook(accno)
+            {
+                const url=`http://localhost:8080/Ex._No.__5_-_SERVLET_-_JDBC/jdbcServlet?action=delete&accno=${accno}`;
+                console.log("hii");
+                fetch(url,{ method: 'POST', headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'  // Required for POST
+    }})
+                        .then(response=>{response.json()})
+                        .then(text=>{
+                            console.log('Delete response:', text);
+                            if(text?.status==='success')
+                            {
+                                  alert('Book deleted successfully');
+                                  fetchAllBooks();
+                            }
+                            else
+                            {
+                                alert('Error deteting book');
+                            }
+                })
+                        .catch(error=>console.log('Error deleting book',error));
+            }
+            
+        </script>
+    </head>
+     <body onload="fetchAllBooks()">
+        <h1>Book List</h1>
+        <table border="1" id="bookTable">
+            <thead>
+                <tr>
+                    <th>Account No</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Edition</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management System</title>
+    <style>
+        .form-container {
+            display: none;
+        }
+        .form-container form div{
+            margin-bottom: 20px;
+        }
+        input, select { 
+            padding: 5px 8px;
+            box-sizing: border-box;
+        }
+        .output { 
+            margin: 20px; 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            background-color: #f9f9f9; 
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Library Management System</h1>
+    <h3>Select an operation to perform:</h3>
+    <select id="operationSelect">
+        <option value="">--Select Operation--</option>
+        <option value="insert">Insert Book Information</option>
+        <option value="displayIndividual">Display Individual Book Information</option>
+        <option value="displayAll">Display All Books Information</option>
+        <option value="update">Update Book Information</option>
+        <option value="delete">Delete Book Information</option>
+    </select>
+
+    <!-- Insert Book Information Form -->
+    <div id="insertForm" class="form-container">
+        <h2>Insert Book Information</h2>
+        <form id="bookForm" action="InsertBookServlet" method="post">
+            <div>
+                <label for="book_name">Book Name:</label>
+                <input type="text" id="book_name" name="book_name"><br>
+            </div>
+            
+            <div>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author"><br>
+            </div>
+
+            <div>
+                <label for="publisher">Publisher:</label>
+                <input type="text" id="publisher" name="publisher"><br>
+            </div>
+
+            <div>
+                <label for="edition">Edition:</label>
+                <input type="text" id="edition" name="edition"><br>
+            </div>
+
+            <div>
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price"><br>
+            </div>
+            
+            <div>
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category"><br>
+            </div>
+
+            <button type="submit">Insert Book</button>
+        </form>
+    </div>
+
+    <!-- Display Individual Book Information Form -->
+    <div id="displayIndividualForm" class="form-container">
+        <h2>Display Individual Book Information</h2>
+        <form action="DisplayIndividualServlet" method="get">
+            <div>
+                <label for="bookName">Enter Book Name:</label>
+                <input type="text" id="bookName" name="book_name" ><br>
+            </div>
+            <button type="submit">Display Book</button>
+        </form>
+    </div>
+
+    <!-- Display All Books Information -->
+    <div id="displayAllForm" class="form-container">
+        <h2>All Books Information</h2>
+        <form action="DisplayAllServlet" method="get">
+            <button type="submit">Display All Books</button>
+        </form>
+    </div>
+
+    <!-- Update Book Information Form -->
+    <div id="updateForm" class="form-container">
+        <h2>Update Book Information</h2>
+        <form id="updateBookForm" action="UpdateBookServlet" method="post">
+            
+            <div>
+                <label for="book_name">Book Name:</label>
+                <input type="text" id="update_book_name" name="book_name" ><br>
+            </div>
+            
+            <div>
+                <label for="author">New Author:</label>
+                <input type="text" id="update_author" name="author" ><br>
+            </div>
+
+            <div>
+                <label for="publisher">New Publisher:</label>
+                <input type="text" id="update_publisher" name="publisher" ><br>
+            </div>
+            
+            <div>
+                <label for="edition">New Edition:</label>
+                <input type="text" id="update_edition" name="edition" ><br>
+            </div>
+            
+            <div>
+                <label for="price">New Price:</label>
+                <input type="text" id="update_price" name="price" ><br>
+            </div>
+
+            
+            <div>
+                <label for="category">New Category:</label>
+                <input type="text" id="update_category" name="category" ><br>
+            </div>
+            
+            <button type="submit">Update Book</button>
+        </form>
+    </div>
+
+    <!-- Delete Book Information Form -->
+    <div id="deleteForm" class="form-container">
+        <h2>Delete Book Information</h2>
+        <form action="DeleteBookServlet" method="post">
+            <div>
+                <label for="delete_book_name">Enter Book Name to Delete:</label>
+                <input type="text" id="delete_book_name" name="book_name" ><br> 
+            </div>
+     
+            <button type="submit">Delete Book</button>
+        </form>
+    </div>
+
+    
+    <!--     output section-->
+    <div id="output" class="output"></div>
+    <script src="validation.js"></script>
+</body>
+</html>
