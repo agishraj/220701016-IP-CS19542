@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #20c997; /* Teal */
+        }
+        .navbar-nav a {
+            color: #fff !important;
+        }
+        .navbar-nav .nav-item:hover {
+            background-color: #fd7e14; /* Coral */
+        }
+
+        /* Carousel Styling */
+        .carousel-inner img {
+            max-width: 1200px;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        /* Course Card Styling */
+        .course-card {
+            margin-bottom: 30px;
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .course-card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #20c997; /* Teal */
+        }
+
+        .course-card-text {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        .btn-primary {
+            background-color: #fd7e14; /* Coral */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #e8590c; /* Darker Coral */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #20c997; /* Teal */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .carousel-inner img {
+                height: 250px;
+            }
+
+            .course-card img {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Rajalakshmi Engineering College</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Faculty</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="clgim.png" class="d-block w-100" alt="College Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="clg image.jpeg" class="d-block w-100" alt="College Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="staff.jpeg" class="d-block w-100" alt="College Image 3">
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Section -->
+    <div class="container mt-4">
+        <h2 class="text-center mb-4">Our Courses</h2>
+        <div class="row">
+            <!-- Course Card -->
+            <div class="col-md-4">
+                <div class="card course-card">
+                    <img src="cse.jpg" class="card-img-top" alt="Course 1">
+                    <div class="card-body">
+                        <h5 class="card-title course-card-title">Computer Science Engineering</h5>
+                        <p class="card-text course-card-text">CSE courses offer diverse specialization options like Artificial Intelligence & Machine Learning, Cyber Security, and Computer Software Engineering degrees, allowing students to shape their education to their specific interests and CSE career aspirations.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Course Card -->
+            <div class="col-md-4">
+                <div class="card course-card">
+                    <img src="ece.jpg" class="card-img-top" alt="Course 2">
+                    <div class="card-body">
+                        <h5 class="card-title course-card-title">Electronics and Communication Engineering</h5>
+                        <p class="card-text course-card-text">ECE stands for Electronics and Communication Engineering, a branch of engineering that involves the study, design, development, and application of electronics, electrical circuits, and communication systems.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Course Card -->
+            <div class="col-md-4">
+                <div class="card course-card">
+                    <img src="mech.webp" class="card-img-top" alt="Course 3">
+                    <div class="card-body">
+                        <h5 class="card-title course-card-title">Mechanical Engineering</h5>
+                        <p class="card-text course-card-text">Mechanical engineering is the study of how to design, analyze, manufacture, and maintain mechanical systems that involve force and movement. It's a broad engineering discipline that combines engineering physics, mathematics, and materials science.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 CollegeName. All Rights Reserved.</p>
+    </footer>
+
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
